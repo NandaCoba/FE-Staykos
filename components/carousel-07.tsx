@@ -12,6 +12,7 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export default function CarouselWithFooter() {
   const [api, setApi] = React.useState<CarouselApi>();
@@ -39,7 +40,7 @@ export default function CarouselWithFooter() {
             <CarouselItem key={index}>
               <Card>
                 <CardContent className="flex aspect-video items-center justify-center p-6">
-                  <img  src="/slide.jpg" alt="" />
+                  <Image src="/slide.jpg" alt="" ></Image>
                 </CardContent>
               </Card>
             </CarouselItem>

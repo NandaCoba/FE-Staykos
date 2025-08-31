@@ -1,6 +1,4 @@
 'use client'
-import AOS from "aos";
-import "aos/dist/aos.css";
 import { Button } from '@/components/ui/button';
 
 // Extend dummy data to 50 entries
@@ -13,7 +11,6 @@ export const dummyKosan = Array.from({ length: 50 }, (_, idx) => ({
 }));
 
 import { CardKost } from '@/components/cardKost'
-import CarouselWithFooter from '@/components/carousel-07';
 import FAQ02 from '@/components/faq-02/faq-02';
 import Features01Page from '@/components/features-01/features-01';
 import Footer01Page from '@/components/footer-01/footer-01';
@@ -21,17 +18,13 @@ import Logos01Page from '@/components/logos-01/logos-01';
 import Logos03Page from '@/components/logos-03/logos-03';
 import Navbar05Page from '@/components/navbar-05/navbar-05'
 import Testimonial06 from '@/components/testimonial-06/testimonial-06';
-import { Card } from '@/components/ui/card'
 import Intro from '@/layouts/home/Intro'
-import React from 'react'
+import { useState } from 'react';
 
 
-const page = () => {
-	React.useEffect(() => {
-		AOS.init();
-	}, []);
+const Page = () => {
 
-	const [visibleCount, setVisibleCount] = React.useState(20);
+	const [visibleCount, setVisibleCount] = useState(0)
 
 	const handleLoadMore = () => {
 		setVisibleCount((prev) => Math.min(prev + 20, dummyKosan.length));
@@ -85,4 +78,4 @@ const page = () => {
 	)
 }
 
-export default page
+export default Page

@@ -1,7 +1,6 @@
 "use client";
-import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Star, Heart, User, UserRound, Home } from "lucide-react";
+import { Star, Heart } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -13,12 +12,6 @@ interface CardKostProps {
 	rating: number;
 	type: "Putra" | "Putri" | "Umum";
 }
-
-const typeColor = {
-	Putra: "bg-blue-100 text-blue-700",
-	Putri: "bg-pink-100 text-pink-700",
-	Umum: "bg-green-100 text-green-700",
-};
 
 export const CardKost: React.FC<CardKostProps> = ({ imageUrl, title, price, rating, type }) => {
 	const [liked, setLiked] = useState(false);
