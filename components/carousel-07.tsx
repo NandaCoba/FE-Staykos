@@ -40,7 +40,12 @@ export default function CarouselWithFooter() {
             <CarouselItem key={index}>
               <Card>
                 <CardContent className="flex aspect-video items-center justify-center p-6">
-                  <Image src="/slide.jpg" alt="" ></Image>
+                  <Image
+                    src="/slide.jpg"
+                    alt=""
+                    width={800}
+                    height={450}
+                  ></Image>
                 </CardContent>
               </Card>
             </CarouselItem>

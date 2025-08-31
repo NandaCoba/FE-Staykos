@@ -24,7 +24,7 @@ import { useState } from 'react';
 
 const Page = () => {
 
-	const [visibleCount, setVisibleCount] = useState(0)
+	const [visibleCount, setVisibleCount] = useState(20)
 
 	const handleLoadMore = () => {
 		setVisibleCount((prev) => Math.min(prev + 20, dummyKosan.length));
@@ -54,7 +54,7 @@ const Page = () => {
 						/>
 					))}
 				</div>
-				{visibleCount < dummyKosan.length && (
+				{visibleCount < dummyKosan.length && visibleCount > 20 && (
 					<div className="flex justify-center mt-8">
 						<Button className=" h-16 w-40 text-sm cursor-pointer bg-white border border-black border-b-2 text-gray-700 hover:bg-white font-bold" onClick={handleLoadMore}>Lihat Lebih Banyak</Button>
 					</div>
