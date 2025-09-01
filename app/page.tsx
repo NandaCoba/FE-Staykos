@@ -20,62 +20,84 @@ import Navbar05Page from '@/components/navbar-05/navbar-05'
 import Testimonial06 from '@/components/testimonial-06/testimonial-06';
 import Intro from '@/layouts/home/Intro'
 import { useState } from 'react';
-
+import NavigationMenuMobile from '@/components/navigation-menu-08';
+import Features06Page from '@/components/features-06/features-06';
 
 const Page = () => {
+  const [visibleCount, setVisibleCount] = useState(20)
 
-	const [visibleCount, setVisibleCount] = useState(20)
+  const handleLoadMore = () => {
+    setVisibleCount((prev) => Math.min(prev + 20, dummyKosan.length));
+  };
 
-	const handleLoadMore = () => {
-		setVisibleCount((prev) => Math.min(prev + 20, dummyKosan.length));
-	};
+  return (
+    <div className="relative min-h-screen flex flex-col bg-background">
+      {/* Navbar for desktop */}
+      <div className="hidden md:block">
+        <Navbar05Page />
+      </div>
 
-	return (
-		<div>
-			<Navbar05Page />
+      {/* Main Content */}
+      <main className="flex-1 pb-20"> {/* ⬅️ padding bottom biar ga ketiban nav */}
+        <section className="pt-24 pb-10">
+          <Intro />
+        </section>
 
-			<section className="pt-24 pb-10">
-				<Intro />
-			</section>
-			<div className="mt-40">
-				<Logos03Page />
-			</div>
+        <div className="mt-40">
+          <Logos03Page />
+        </div>
 
-			<section className="w-full max-w-7xl mx-auto px-4 py-20 mt-40">
-				<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-8">
-					{dummyKosan.slice(0, visibleCount).map((kost, idx) => (
-						<CardKost
-							key={kost.title + idx}
-							imageUrl={kost.imageUrl}
-							title={kost.title}
-							price={kost.price}
-							rating={kost.rating}
-							type={kost.type as "Putra" | "Putri" | "Umum"}
-						/>
-					))}
-				</div>
-				{visibleCount < dummyKosan.length && visibleCount >= 20 && (
-					<div className="flex justify-center mt-8">
-						<Button className=" h-16 w-40 text-sm cursor-pointer bg-white border border-black border-b-2 text-gray-700 hover:bg-white font-bold" onClick={handleLoadMore}>Lihat Lebih Banyak</Button>
-					</div>
-				)}
-			</section>
+		<div className="mt-40 justify-center items-center flex">
+			<Features06Page/>
+        </div>
 
-			<section className="py-20">
-				<Testimonial06 />
-			</section>
-			<section className="py-20">
-				<Features01Page />
-			</section>
-			<section className="py-20">
-				<Logos01Page />
-			</section>
-			<section className="">
-				<FAQ02 />
-			</section>
-			<Footer01Page />
-		</div>
-	)
+        <section className="w-full max-w-7xl mx-auto px-4 py-20 mt-40">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-8">
+            {dummyKosan.slice(0, visibleCount).map((kost, idx) => (
+              <CardKost
+                key={kost.title + idx}
+                imageUrl={kost.imageUrl}
+                title={kost.title}
+                price={kost.price}
+                rating={kost.rating}
+                type={kost.type as "Putra" | "Putri" | "Umum"}
+              />
+            ))}
+          </div>
+          {visibleCount < dummyKosan.length && visibleCount >= 20 && (
+            <div className="flex justify-center mt-8">
+              <Button
+                className="h-16 w-40 text-sm cursor-pointer bg-white border border-black border-b-2 text-gray-700 hover:bg-white font-bold"
+                onClick={handleLoadMore}
+              >
+                Lihat Lebih Banyak
+              </Button>
+            </div>
+          )}
+        </section>
+
+        <section className="py-20">
+          <Testimonial06 />
+        </section>
+        <section className="py-20">
+          <Features01Page />
+        </section>
+        <section className="py-20">
+          <Logos01Page />
+        </section>
+        <section>
+          <FAQ02 />
+        </section>
+
+        <Footer01Page />
+      </main>
+
+      {/* Navigation menu for mobile */}
+      <div className="block md:hidden fixed bottom-0 left-0 right-0 bg-white shadow-md border-t border-gray-200 z-[9999]">
+        <NavigationMenuMobile />
+      </div>
+    </div>
+  )
 }
 
 export default Page

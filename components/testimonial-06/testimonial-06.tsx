@@ -17,65 +17,33 @@ const testimonials = [
   {
     id: 1,
     name: "John Doe",
-    designation: "Software Engineer",
-    company: "TechCorp",
+    designation: "Mahasiswa",
+    company: "Universitas Indonesia",
     testimonial:
-      "This product has completely transformed the way we work. The efficiency and ease of use are unmatched! " +
-      "We were struggling with productivity before, but this tool has streamlined our entire process. ",
-    avatar: "https://randomuser.me/api/portraits/men/1.jpg",
+      "StayKos bikin cari kos jadi gampang banget! Saya nemu kos yang deket kampus dan harganya terjangkau. " +
+      "Dulu susah banget cari yang sesuai budget, tapi sekarang langsung ketemu yang pas. Terima kasih StayKos!",
+    avatar: "/user(1).jpg",
   },
   {
     id: 2,
     name: "Jane Smith",
-    designation: "Product Manager",
-    company: "InnovateX",
+    designation: "Karyawan Swasta",
+    company: "PT. Inovasi Teknologi",
     testimonial:
-      "An amazing tool that simplifies complex tasks. Highly recommended for professionals in the industry. " +
-      "The intuitive interface makes it easy to onboard new team members, and the automation features save us countless hours every week. ",
-    avatar: "https://randomuser.me/api/portraits/women/2.jpg",
+      "Aplikasi StayKos sangat membantu saya menemukan kos yang nyaman dan aman. " +
+      "Fitur pencariannya akurat, dan saya bisa lihat foto-foto kos sebelum datang. Sudah 2 tahun ngekos di sini dan puas banget!",
+    avatar: "/user2.jpg",
   },
   {
     id: 3,
     name: "Michael Johnson",
-    designation: "UX Designer",
-    company: "DesignPro",
+    designation: "Freelancer",
+    company: "Desain Kreatif",
     testimonial:
-      "The user experience is top-notch! The interface is clean, intuitive, and easy to navigate. " +
-      "As a designer, I appreciate the attention to detail and well-thought-out UI components. " +
-      "It makes designing and prototyping so much more efficient.",
-    avatar: "https://randomuser.me/api/portraits/men/3.jpg",
-  },
-  {
-    id: 4,
-    name: "Emily Davis",
-    designation: "Marketing Specialist",
-    company: "BrandBoost",
-    testimonial:
-      "I've seen a significant improvement in our team's productivity since we started using this service. " +
-      "The ability to track performance, analyze data, and collaborate across teams has been a game-changer.",
-    avatar: "https://randomuser.me/api/portraits/women/4.jpg",
-  },
-  {
-    id: 5,
-    name: "Daniel Martinez",
-    designation: "Full-Stack Developer",
-    company: "CodeCrafters",
-    testimonial:
-      "The best investment we've made! The support team is also super responsive and helpful. " +
-      "As a developer, I appreciate the well-documented API, the flexibility of integrations, and the robust security features.",
-    avatar: "https://randomuser.me/api/portraits/men/5.jpg",
-  },
-  {
-    id: 6,
-    name: "Sophia Lee",
-    designation: "Data Analyst",
-    company: "InsightTech",
-    testimonial:
-      "This tool has saved me hours of work! The analytics and reporting features are incredibly powerful. " +
-      "I can now generate detailed reports in minutes, which previously took days to compile. " +
-      "helping us make smarter, data-backed decisions.",
-    avatar: "https://randomuser.me/api/portraits/women/6.jpg",
-  },
+      "Sebagai freelancer, saya sering pindah-pindah tempat. StayKos jadi solusi terbaik buat cari kos cepat. " +
+      "Interface-nya user-friendly, dan ada banyak pilihan kos dengan fasilitas lengkap. Recommended banget!",
+    avatar: "/user3.jpg",
+  }
 ];
 const Testimonial06 = () => {
   const [api, setApi] = useState<CarouselApi>();
@@ -137,7 +105,12 @@ const TestimonialCard = ({
 }) => (
   <div className="mb-8 bg-accent rounded-xl py-8 px-6 sm:py-6">
     <div className="flex items-center justify-between gap-20">
-      <div className="hidden lg:block relative shrink-0 aspect-[3/4] max-w-[18rem] w-full bg-muted-foreground/20 rounded-xl">
+      <div className="hidden lg:block relative shrink-0 aspect-[3/4] max-w-[18rem] w-full bg-muted-foreground/20 rounded-xl overflow-hidden">
+        <img
+          src={testimonial.avatar}
+          alt={testimonial.name}
+          className="absolute inset-0 w-full h-full object-cover rounded-xl"
+        />
         <div className="absolute top-1/4 right-0 translate-x-1/2 h-12 w-12 bg-primary rounded-full flex items-center justify-center">
           <svg
             width="102"

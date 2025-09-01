@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -11,22 +12,42 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import Link from "next/link"
+import { toast } from "sonner"
+
+
 
 export function RegisterLayouts() {
   return (
-    <Card className="w-full max-w-sm">
+    <Card className="w-full max-w-lg shadow-none border-none">
       <CardHeader>
-        <CardTitle>Login to your account</CardTitle>
+        <CardTitle>Register your account</CardTitle>
         <CardDescription>
-          Enter your email below to login to your account
+          Enter your details below to create your account
         </CardDescription>
         <CardAction>
-          <Link href={"/auth/login"}><Button className=" cursor-pointer" variant="link">Sign In</Button></Link>
         </CardAction>
       </CardHeader>
       <CardContent>
         <form>
           <div className="flex flex-col gap-6">
+            <div className="grid gap-2">
+              <Label htmlFor="firstName">First Name</Label>
+              <Input
+                id="firstName"
+                type="text"
+                placeholder="John"
+                required
+              />
+            </div>
+            <div className="grid gap-2">
+              <Label htmlFor="lastName">Last Name</Label>
+              <Input
+                id="lastName"
+                type="text"
+                placeholder="Doe"
+                required
+              />
+            </div>
             <div className="grid gap-2">
               <Label htmlFor="email">Email</Label>
               <Input
@@ -37,27 +58,75 @@ export function RegisterLayouts() {
               />
             </div>
             <div className="grid gap-2">
-              <div className="flex items-center">
-                <Label htmlFor="password">Password</Label>
-                <a
-                  href="#"
-                  className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
+              <Label htmlFor="phone">Phone Number</Label>
+              <div className="flex gap-2">
+                <select
+                  id="countryCode"
+                  className="flex h-10 w-20 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                  required
                 >
-                  Forgot your password?
-                </a>
+                  <option value="+62">+62</option>
+                  <option value="+1">+1</option>
+                  <option value="+65">+65</option>
+                  <option value="+60">+60</option>
+                  <option value="+66">+66</option>
+                </select>
+                <Input
+                  id="phone"
+                  type="tel"
+                  placeholder="812 3456 7890"
+                  className="flex-1"
+                  required
+                />
               </div>
+            </div>
+            <div className="grid gap-2">
+              <Label htmlFor="gender">Gender</Label>
+              <select
+                id="gender"
+                className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                required
+              >
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+            <div className="grid gap-2">
+              <Label htmlFor="password">Password</Label>
               <Input id="password" type="password" required />
+            </div>
+            <div className="grid gap-2">
+              <Label htmlFor="confirmPassword">Confirm Password</Label>
+              <Input id="confirmPassword" type="password" required />
             </div>
           </div>
         </form>
       </CardContent>
       <CardFooter className="flex-col gap-2">
-        <Button type="submit" className="w-full">
-          Login
+        <Button
+          className=" w-full cursor-pointer"
+          onClick={() =>
+            toast("Registration Successful!", {
+              description: "Welcome to StayKos! Your account has been created.",
+              action: {
+                label: "Continue",
+                onClick: () => console.log("Continue"),
+              },
+            })
+          }
+        >
+          Register
         </Button>
         <Button variant="outline" className="w-full">
-          Login with Google
+          Register with Google
         </Button>
+        <p className="text-sm text-center mt-4">
+          Already have an account? 
+          <Link href="/auth/login" className="ml-1 underline text-muted-foreground">
+            Sign In
+          </Link>
+        </p>
       </CardFooter>
     </Card>
   )

@@ -12,10 +12,9 @@ export const NavigationSheet = () => {
           <Menu />
         </Button>
       </SheetTrigger>
-      <SheetContent>
-        <SheetTitle>Navigation</SheetTitle>
-        <Logo />
-        <NavMenu orientation="vertical" className="mt-12" />
+      <SheetContent className="flex flex-col gap-4 p-4">
+        <SheetTitle className="text-lg font-bold">Navigation</SheetTitle>
+        <NavMenu orientation="vertical" className="space-y-2" />
       </SheetContent>
     </Sheet>
   );

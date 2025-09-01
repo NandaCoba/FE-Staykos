@@ -49,7 +49,7 @@ const features = [
 
 const Features01Page = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center py-12">
+    <div className="">
       <div>
         <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-center">
           Unleash Your Creativity

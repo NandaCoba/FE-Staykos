@@ -14,6 +14,7 @@ import { Separator } from "@/components/ui/separator";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { z } from "zod";
 
 const formSchema = z.object({
@@ -32,6 +33,13 @@ export function LoginComponents () {
 
   const onSubmit = (data: z.infer<typeof formSchema>) => {
     console.log(data);
+    toast("Login Successful!", {
+      description: "Welcome back to StayKos!",
+      action: {
+        label: "Continue",
+        onClick: () => console.log("Continue"),
+      },
+    });
   };
 
   return (
@@ -115,7 +123,8 @@ export function LoginComponents () {
             </p>
           </div>
         </div>
-        <div className="bg-muted hidden lg:block" />
+        <div className="hidden bg-black lg:block" >
+        </div>
       </div>
     </div>
   );
