@@ -51,7 +51,10 @@ const Page = () => {
 			<Features06Page/>
         </div>
 
-        <section className="w-full max-w-7xl mx-auto px-4 py-20 mt-40">
+        <section className="w-full max-w-7xl mx-auto px-4 py-20 mt-40 space-y-20">
+		<h2 className="text-4xl md:text-4xl md:leading-[3.5rem] font-bold tracking-tight max-w-xl md:text-center md:mx-auto">
+          Temukan Kosan Impian Anda
+        </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-8">
             {dummyKosan.slice(0, visibleCount).map((kost, idx) => (
               <CardKost
