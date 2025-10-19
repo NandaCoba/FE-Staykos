@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Heart, MapPin, Star } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
 
 // Data awal 8 properti
@@ -118,7 +119,7 @@ export function FeaturedListings() {
             <Link key={property.id} href={`/property/${property.id}`}>
               <div className="group cursor-pointer">
                 <div className="relative aspect-square bg-muted overflow-hidden rounded-lg mb-3">
-                  <img
+                  <Image
                     src={property.image || "/placeholder.svg"}
                     alt={property.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"

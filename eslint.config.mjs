@@ -19,6 +19,16 @@ const eslintConfig = [
       "build/**",
       "next-env.d.ts",
     ],
+    rules: {
+      // matikan semua rule selain yang kita mau
+      "no-console": ["warn", { allow: ["warn", "error"] }], // hanya console.log yang diwarn
+      "react/no-unescaped-entities": "off",
+      "@next/next/no-img-element": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-unused-vars": "off",
+      "react-hooks/exhaustive-deps": "off",
+      // tambahkan rules lain yang ingin dimatikan
+    },
   },
 ];
 

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Heart, MapPin, Calendar, LogOut, HelpCircle, MessageSquare } from "lucide-react"
+import Image from "next/image"
 
 const BOOKINGS = [
   {
@@ -77,7 +78,7 @@ export default function DashboardPage() {
           <div className="md:col-span-1">
             <Card className="p-6 space-y-4">
               <div className="flex items-center gap-4 pb-4 border-b border-border">
-                <img src="/placeholder.svg?key=profile" alt="Profile" className="w-12 h-12 rounded-full object-cover" />
+                <Image src="/placeholder.svg?key=profile" alt="Profile" className="w-12 h-12 rounded-full object-cover" />
                 <div>
                   <h3 className="font-semibold text-foreground">Alex Morgan</h3>
                   <p className="text-sm text-muted-foreground">alex@example.com</p>
@@ -128,7 +129,7 @@ export default function DashboardPage() {
                   BOOKINGS.map((booking) => (
                     <Card key={booking.id} className="overflow-hidden">
                       <div className="flex flex-col md:flex-row">
-                        <img
+                        <Image
                           src={booking.image || "/placeholder.svg"}
                           alt={booking.property}
                           className="w-full md:w-48 h-48 object-cover"
@@ -191,7 +192,7 @@ export default function DashboardPage() {
                     {SAVED_PROPERTIES.map((property) => (
                       <Card key={property.id} className="overflow-hidden hover:shadow-lg transition-shadow">
                         <div className="relative h-48 bg-muted overflow-hidden">
-                          <img
+                          <Image
                             src={property.image || "/placeholder.svg"}
                             alt={property.name}
                             className="w-full h-full object-cover hover:scale-105 transition-transform"

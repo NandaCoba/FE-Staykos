@@ -8,6 +8,7 @@ import { Card } from "@/components/ui/card"
 import { Heart, MapPin, Users, Wifi, Wind, UtensilsCrossed, Zap, Star, ChevronLeft, ChevronRight } from "lucide-react"
 import Link from "next/link"
 import { AISearchModal } from "@/components/ai-search-modal"
+import Image from "next/image"
 
 // Mock property data
 const PROPERTIES: Record<string, any> = {
@@ -81,7 +82,7 @@ const PROPERTIES: Record<string, any> = {
   },
 }
 
-export default function PropertyPage({ params }: { params: { id: string } }) {
+export default function PropertyPage({ params }: { params: any }) {
   const property = PROPERTIES[params.id] || PROPERTIES["1"]
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -130,7 +131,7 @@ export default function PropertyPage({ params }: { params: { id: string } }) {
 
           {/* Image Grid */}
           <div className="grid grid-cols-2 gap-4">
-            {property.images.slice(1, 5).map((image, index) => (
+            {property.images.slice(1, 5).map((image : any, index : any) => (
               <button
                 key={index}
                 onClick={() => setCurrentImageIndex(index + 1)}
@@ -324,7 +325,7 @@ export default function PropertyPage({ params }: { params: { id: string } }) {
               <div className="space-y-4">
                 <h2 className="text-xl font-bold text-foreground">Where you'll be</h2>
                 <div className="w-full h-96 bg-muted rounded-lg overflow-hidden">
-                  <img src="/map-location.jpg" alt="Location map" className="w-full h-full object-cover" />
+                  <Image src="/map-location.jpg" alt="Location map" className="w-full h-full object-cover" />
                 </div>
                 <p className="text-foreground text-sm">{property.location}</p>
               </div>

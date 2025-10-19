@@ -1,5 +1,6 @@
 import { ArrowRight, Calendar, User } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 interface BlogPost {
   id: string
@@ -122,7 +123,7 @@ export default function BlogsPage() {
               </Button>
             </div>
             <div className="h-64 sm:h-80 bg-muted rounded-lg overflow-hidden">
-              <img
+              <Image
                 src={featuredPost.image || "/placeholder.svg"}
                 alt={featuredPost.title}
                 className="w-full h-full object-cover"
@@ -139,7 +140,7 @@ export default function BlogsPage() {
           {blogPosts.map((post) => (
             <article key={post.id} className="group cursor-pointer">
               <div className="mb-4 h-48 bg-muted rounded-lg overflow-hidden">
-                <img
+                <Image
                   src={post.image || "/placeholder.svg"}
                   alt={post.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"

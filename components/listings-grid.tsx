@@ -1,5 +1,6 @@
 "use client"
 import { Heart, MapPin, Star } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
 
 interface Listing {
@@ -36,7 +37,7 @@ export function ListingsGrid({ listings }: ListingsGridProps) {
         <Link key={listing.id} href={`/property/${listing.id}`}>
           <div className="group cursor-pointer">
             <div className="relative aspect-square bg-muted overflow-hidden rounded-lg mb-3">
-              <img
+              <Image
                 src={listing.image || "/placeholder.svg"}
                 alt={listing.name}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
